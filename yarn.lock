@@ -5535,6 +5535,11 @@ react-is@^16.13.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-circular-progress-indicator@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-circular-progress-indicator/-/react-native-circular-progress-indicator-2.0.5.tgz#931f04d1510073f74980cc2b47a75f389f7092ed"
+  integrity sha512-6WFVedxYjwpUj2nXbne51Q3C6WY+U0mzoGS4qYHFmTnftt90Z/gCzrTMVHx+867pdKI73ZlC+qbWkQVH9bDTGw==
+
 react-native-codegen@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.7.tgz#86651c5c5fec67a8077ef7f4e36f7ed459043e14"
