@@ -11,9 +11,9 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
     return(
-        <Tab.Navigator>
+        <Tab.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
             <Tab.Screen name='Home' component={Home} options={{
-                tabBarStyle:{ height: 60, paddingBottom: 5},
+                tabBarStyle:{ height: 60, paddingBottom: 5,},
                 headerTitle: 'Android Manager',
                 tabBarLabelStyle:{
                     fontSize: 12,
