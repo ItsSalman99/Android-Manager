@@ -1,33 +1,37 @@
-import React, { useEffect } from 'react'
-import {View,Text} from 'react-native'
-import DeviceInfo from 'react-native-device-info'
-import SimpleProgress from '../components/SimpleProgress'
+import React, { useEffect, useState } from 'react'
+import {View,Text, FlatList, ScrollView, TouchableOpacity, } from 'react-native'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import MainProgress from '../components/MainProgress'
 
-const Home = () => {
-
-    useEffect(() => {
-      return () => {
-        DeviceInfo.getCarrier().then((carrier) => {
-          console.warn(carrier);
-        });
-    }
-      }
-    )
+const Home = ({navigation}) => {
 
     return(
-      <View style={{backgroundColor: '#fff', flex: 1, flexDirection: 'column',}}>
-        <View style={{flex: 1, alignItems: 'center'}}>
-          <SimpleProgress/>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-              <View style={{flex:1, alignItems: 'center'}}>
-                <Text style={{fontSize: 20, fontWeight: 'bold',color: '#000000'}}>40%</Text>
-              </View>
-              <View style={{flex:1, alignItems: 'center'}}>
-                <Text style={{fontSize: 20, fontWeight: 'bold',color: '#000000'}}>60%</Text>
-              </View>
-          </View>
-        </View>
+      <ScrollView style={{backgroundColor: '#fff'}} contentInsetAdjustmentBehavior="automatic">
+        <MainProgress/>
+      <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Phone Details')}
+        style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='mobile' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Network Details')}
+        style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <MaterialIcon name='network-check' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Network Details</Text>
+        </TouchableOpacity>
       </View>
+      <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='mobile' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='th-large' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Show all apps</Text>
+        </TouchableOpacity>
+      </View>
+      </ScrollView>
     )
 }
 
