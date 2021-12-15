@@ -13,7 +13,6 @@ const SimpleProgress = ({currentstor,memory,color,bgcolor}) => {
             shadowColor="#e5edfa"
             bgColor="#fff"
         >
-            {/* <Text style={{ fontSize: 24 }}>{'30%'}</Text> */}
             <ProgressCircle
             percent={memory}
             radius={90}
@@ -21,7 +20,9 @@ const SimpleProgress = ({currentstor,memory,color,bgcolor}) => {
             color="#98dffd"
             shadowColor="#e5edfa"
             bgColor="#fff"
-            ></ProgressCircle>
+            >
+              <Text style={{ fontSize: 20, color: '#000' }}>{'GB'}</Text>
+            </ProgressCircle>
         </ProgressCircle>
   );
 };
