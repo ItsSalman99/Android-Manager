@@ -13,12 +13,42 @@ const Home = ({navigation}) => {
         <TouchableOpacity onPress={() => navigation.navigate('Phone Details')}
         style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
             <FontAwesome name='mobile' size={30} color='dodgerblue'/>
-            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Device Details</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=> navigation.navigate('Network Details')}
         style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
             <MaterialIcon name='network-check' size={30} color='dodgerblue'/>
             <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Network Details</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='mobile' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='th-large' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Show all apps</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='mobile' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='th-large' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Show all apps</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='mobile' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Phone Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: '#fff', alignItems: 'center', shadowColor: '#000', width: '45%',height: 100,padding: 10, elevation: 10, borderRadius: 5}}>
+            <FontAwesome name='th-large' size={30} color='dodgerblue'/>
+            <Text style={{color: '#000', fontSize: 16, textAlign: 'center'}}>Show all apps</Text>
         </TouchableOpacity>
       </View>
       <View style={{flex:1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'}}>
