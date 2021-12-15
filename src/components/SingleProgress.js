@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, View, Text } from 'react-native';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import ProgressCircle from 'react-native-progress-circle'
 
-const SingleProgress = ({percent,radius,borderWdth,color,bg}) => {
+const SingleProgress = ({percent,radius,borderWdth,color,bg,text}) => {
   const [charging, setCharging] = useState(0)
   useEffect(() => {
     if (charging != 100) {
@@ -21,11 +21,11 @@ const SingleProgress = ({percent,radius,borderWdth,color,bg}) => {
             radius={radius}
             borderWidth={borderWdth}
             color={color}
-            shadowColor="#e5edfa"
+            shadowColor="lightblue"
             bgColor={bg}
         >
             <Text style={{ color: '#000',fontSize: 45, fontWeight: 'bold' }}>{charging}</Text>
-            <Text style={{ color: '#000',fontSize: 20, fontWeight: 'bold' }}>%</Text>
+            <Text style={{ color: '#000',fontSize: 20, fontWeight: 'bold' }}>{text}</Text>
         </ProgressCircle>
   );
 };
