@@ -1,10 +1,13 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import {View,Text, FlatList, ScrollView, TouchableOpacity, } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MainProgress from '../components/MainProgress'
 
-const Home = ({navigation}) => {
+const Home = () => {
+
+  const navigation = useNavigation();
 
     return(
       <ScrollView style={{backgroundColor: '#fff'}} contentInsetAdjustmentBehavior="automatic">
