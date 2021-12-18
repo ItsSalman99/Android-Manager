@@ -1,9 +1,31 @@
 import React from 'react';
-import { Ionicons } from 'react-native-vector-icons/Ionicons';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet,View,Text,Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import HomeScreen from './HomeScreen'
 
 const styles = StyleSheet.create({
+  slide: {
+    backgroundColor: 'dodgerblue',
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 100,
+  },
+  title:{
+    color: '#fff',
+    fontSize: 60,
+    fontWeight: 'bold',
+    marginVertical: 20,
+    textAlign: 'center'
+  },  
+  text:{
+    fontSize: 20,
+    textAlign: 'left',
+    marginVertical: 20,
+  },
+  image:{
+    height: 200,
+    width: 200,
+  },
   buttonCircle: {
     width: 40,
     height: 40,
@@ -12,67 +34,59 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: {
-    width: 320,
-    height: 320,
-  }
+  //[...]
 });
 const slides = [
-    {
-      key: 'one',
-      title: 'Title 1',
-      text: 'Description.\nSay something cool',
-      image: require('../assets/1.png'),
-      backgroundColor: '#59b2ab',
-    },
-    {
-      key: 'two',
-      title: 'Title 2',
-      text: 'Other cool stuff',
-      image: require('../assets/2.png'),
-      backgroundColor: '#febe29',
-    },
-    {
-      key: 'three',
-      title: 'Rocket guy',
-      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-      image: require('../assets/3.png'),
-      backgroundColor: '#22bcb5',
+  {
+    key: 'one',
+    title: 'Title 1',
+    text: 'Description.\nSay something cool',
+    image: require('../assets/1.png'),
+    backgroundColor: '#59b2ab',
+  },
+  {
+    key: 'two',
+    title: 'Title 2',
+    text: 'Other cool stuff',
+    image: require('../assets/2.png'),
+    backgroundColor: '#febe29',
+  },
+  {
+    key: 'three',
+    title: 'Rocket guy',
+    text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+    image: require('../assets/3.png'),
+    backgroundColor: '#22bcb5',
+  }
+];
+
+export default class App extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      showRealApp: false
     }
-  ];
-
-const SliderScreen = () => {
-  const renderNextButton = () => {
+  }
+  _renderItem = ({ item }) => {
     return (
-      <View style={styles.buttonCircle}>
-        <Ionicons
-          name="md-arrow-round-forward"
-          color="rgba(255, 255, 255, .9)"
-          size={24}
-          style={{ backgroundColor: 'transparent' }}
-        />
+      <View style={styles.slide}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.text}>{item.text}</Text>
       </View>
     );
   }
-  const renderDoneButton = () => {
-    return (
-      <View style={styles.buttonCircle}>
-        <Ionicons
-          name="md-checkmark"
-          color="rgba(255, 255, 255, .9)"
-          size={24}
-          style={{ backgroundColor: 'transparent' }}
-        />
-      </View>
-    );
+  _onDone = () => {
+    // User finished the introduction. Show real app through
+    // navigation or simply by controlling state
+    this.setState({ showRealApp: true });
   }
-    return (
-      <AppIntroSlider
-        data={slides}
-        renderDoneButton={renderDoneButton}
-        renderNextButton={renderNextButton}
-      />
-    );
+  render() {
+    if (this.state.showRealApp) {
+      return <HomeScreen/>;
+    } else {
+      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
+    }
+  }
 }
-
-export default SliderScreen;
