@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet,View,Text,Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import HomeScreen from './HomeScreen'
+import BottomTabs from '../navigations/BottomTabs';
 
 const styles = StyleSheet.create({
   slide: {
@@ -39,22 +39,22 @@ const styles = StyleSheet.create({
 const slides = [
   {
     key: 'one',
-    title: 'Title 1',
-    text: 'Description.\nSay something cool',
+    title: 'Android Manager',
+    text: 'Your android app manager',
     image: require('../assets/1.png'),
-    backgroundColor: '#59b2ab',
+    backgroundColor: '#fff',
   },
   {
     key: 'two',
-    title: 'Title 2',
-    text: 'Other cool stuff',
+    title: 'Android Manager',
+    text: 'Get all your network \n details in one click',
     image: require('../assets/2.png'),
     backgroundColor: '#febe29',
   },
   {
     key: 'three',
-    title: 'Rocket guy',
-    text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+    title: 'Android Manager',
+    text: 'Get your files details and more ...',
     image: require('../assets/3.png'),
     backgroundColor: '#22bcb5',
   }
@@ -84,7 +84,7 @@ export default class App extends React.Component {
   }
   render() {
     if (this.state.showRealApp) {
-      return <HomeScreen/>;
+      return <BottomTabs/>;
     } else {
       return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
     }
