@@ -1,22 +1,47 @@
 import React, {useEffect, useState} from 'react'
 import {View,Text, ScrollView, TouchableOpacity} from 'react-native'
-import DeviceInfo from 'react-native-device-info'
+import DeviceInfo from "react-native-device-info";
+import {NetworkInfo} from 'react-native-network-info';
+import RNAndroidInstalledApps from 'react-native-android-installed-apps-unblocking';
+
 const NetworkScreen = () => {
 
     const [Sim, setSim] = useState('')
-    const [MacAddress, setMacAddress] = useState('')
+    const [bssID, setbssID] = useState('')
     const [IpAddress, setIpAddress] = useState('')
+    const [subnet, setSubnet] = useState('')
+    const [defaultIP, setdefaultIP] = useState('')
+    const [netFrequency, setnetFrequency] = useState('')
+
+
     useEffect(() => {
         DeviceInfo.getCarrier().then((carrier) => {
             setSim(carrier);
           });
-        DeviceInfo.getMacAddress().then((mac) => {
-            setMacAddress(mac);
-          });
-          DeviceInfo.getIpAddress().then((ip) => {
-            setIpAddress(ip);
-          });
+        NetworkInfo.getIPAddress().then(ipAddress => {
+            setIpAddress(ipAddress);
+        });
+        // Get BSSID
+        NetworkInfo.getBSSID().then(bssid => {
+            setbssID(bssid);
+        });
+        // Get Subnet
+        NetworkInfo.getSubnet().then(subnet => {
+            setSubnet(subnet);
+        });
+        // Get Default Gateway IP
+        NetworkInfo.getGatewayIPAddress().then(defaultGateway => {
+           setdefaultIP(defaultGateway);
+        });
+        RNAndroidInstalledApps.getApps()
+        .then(apps => {
+            console.log({apps})
+        })
+        .catch(error => {
+            alert(error);
+        });
         return () => {
+            
         }
     })
 
@@ -33,12 +58,27 @@ const NetworkScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity>
             <Text style={{color: '#000',borderRadius: 20, borderWidth: 0.1, padding: 10, marginBottom: 10}}>
-                Mac Address: {MacAddress}
+                Ip Address: {IpAddress}
             </Text>
             </TouchableOpacity>
             <TouchableOpacity>
             <Text style={{color: '#000',borderRadius: 20, borderWidth: 0.1, padding: 10, marginBottom: 10}}>
-                Mac Address: {IpAddress}
+                BSS ID: {bssID}
+            </Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Text style={{color: '#000',borderRadius: 20, borderWidth: 0.1, padding: 10, marginBottom: 10}}>
+                SUB NET: {subnet}
+            </Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Text style={{color: '#000',borderRadius: 20, borderWidth: 0.1, padding: 10, marginBottom: 10}}>
+                Default Ip: {defaultIP}
+            </Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Text style={{color: '#000',borderRadius: 20, borderWidth: 0.1, padding: 10, marginBottom: 10}}>
+                Net Frequency: {netFrequency}
             </Text>
             </TouchableOpacity>
             

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet,View,Text,Image } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
@@ -82,11 +83,16 @@ export default class App extends React.Component {
     // navigation or simply by controlling state
     this.setState({ showRealApp: true });
   }
+  _onSkip = () => {
+    // User finished the introduction. Show real app through
+    // navigation or simply by controlling state
+    this.setState({ showRealApp: true });
+  }
   render() {
     if (this.state.showRealApp) {
       return <BottomTabs/>;
     } else {
-      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
+      return <AppIntroSlider renderItem={this._renderItem} data={slides} onSkip={() => {this.naviga}} onDone={this._onDone}/>;
     }
   }
 }
