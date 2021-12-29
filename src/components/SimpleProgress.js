@@ -1,17 +1,18 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View, Text } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 const SimpleProgress = ({currentstor,memory,color,bgcolor}) => {
   
   return (
     <ProgressCircle
             percent={currentstor}
-            radius={100}
-            borderWidth={10}
-            color="#5599fc"
+            radius={108}
+            borderWidth={15}
+            color="dodgerblue"
             shadowColor="#e5edfa"
-            bgColor="#fff"
+            bgColor="green"
         >
             <ProgressCircle
             percent={memory}
@@ -21,7 +22,7 @@ const SimpleProgress = ({currentstor,memory,color,bgcolor}) => {
             shadowColor="#e5edfa"
             bgColor="#fff"
             >
-              <Text style={{ fontSize: 20, color: '#000' }}>{'GB'}</Text>
+              <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold' }}></Text>
             </ProgressCircle>
         </ProgressCircle>
   );
