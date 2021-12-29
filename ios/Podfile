@@ -12,6 +12,8 @@ target 'AndroidManager' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   target 'AndroidManagerTests' do
     inherit! :complete
     # Pods for testing

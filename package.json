@@ -17,6 +17,7 @@
     "react-native": "0.66.4",
     "react-native-android-installed-apps-unblocking": "^1.0.3",
     "react-native-app-intro-slider": "^4.0.4",
+    "react-native-camera": "^4.2.1",
     "react-native-device-info": "^8.4.8",
     "react-native-network-info": "^5.2.1",
     "react-native-progress-circle": "^2.1.0",
